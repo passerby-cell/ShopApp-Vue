@@ -1,15 +1,19 @@
 # 依赖
-## init Vuex
+## install Vuex
 `npm i vuex@3 `
-## init axios
+## install axios
 `npm i vue-axios`
-## init router
+## install router
 `npm i vue-router@3`
-## init less
+## install less
 `npm i less less-loader@7.3.0`
-## init mockjs mock数据
+## install mockjs mock数据
 `npm i mockjs`
 ## install nprogress 加载进度条插件
 `npm i nprogress`
 ## install swiper 轮播图
 `npm i swiper@5`
+## install uuid 
+`npm i uuid`
+## install animate.css 动画效果
+`npm i animate.css`
