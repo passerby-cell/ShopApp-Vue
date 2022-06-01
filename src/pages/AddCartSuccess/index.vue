@@ -19,7 +19,7 @@
             :to="{name:'detail',params:{skuId:this.$route.query.skuId} }"
             class="sui-btn btn-xlarge"
           >查看商品详情</router-link>
-          <a href="javascript:">去购物车结算 ></a>
+          <a @click="ShopCart">去购物车结算 ></a>
         </div>
       </div>
     </div>
@@ -35,6 +35,12 @@ export default {
     },
     count() {
       return JSON.parse(sessionStorage.getItem('count'))
+    },
+  },
+  methods: {
+    ShopCart() {
+      this.$store.dispatch('cart/getCartList')
+      this.$router.push({ name: 'shopcart' })
     },
   },
 }

@@ -1,6 +1,9 @@
 import {
   reqDetailList
 } from '@/api/index'
+import {
+  getUUID
+} from '@/utils/uuid'
 //准备actions,用于响应组件中的动作
 const actions = {
   async detailList({
@@ -16,11 +19,13 @@ const actions = {
 const mutations = {
   DETAILLIST(state, data) {
     state.detailList = data
+    state.uuid = getUUID()
   }
 }
 //准备state,用于存储数据
 const state = {
-  detailList: {}
+  detailList: {},
+  uuid: ''
 }
 //创建并暴露store
 export default {

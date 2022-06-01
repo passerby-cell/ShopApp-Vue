@@ -3,6 +3,7 @@ import App from './App.vue'
 import store from '@/store/index'
 import VueRouter from 'vue-router'
 import 'animate.css'
+
 //注册三级联动组件为全局组件
 import TypeNav from '@/components/TypeNav/index.vue'
 import Banner from '@/components/Banner/index.vue'

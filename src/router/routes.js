@@ -4,6 +4,7 @@ import Login from '@/pages/Login'
 import Search from '@/pages/Search'
 import Detail from '@/pages/Detail'
 import AddCartSuccess from '@/pages/AddCartSuccess'
+import ShopCart from '@/pages/ShopCart'
 export default [{
     path: '/home',
     component: Home,
@@ -47,6 +48,14 @@ export default [{
     name: 'addtocart',
     path: '/addtocart',
     component: AddCartSuccess,
+    meta: {
+      showFooter: true,
+    }
+  },
+  {
+    name: 'shopcart',
+    path: '/shopcart',
+    component: ShopCart,
     meta: {
       showFooter: true,
     }
