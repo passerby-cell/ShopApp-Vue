@@ -78,9 +78,9 @@
             </div>
             <div class="cartWrap">
               <div class="controls">
-                <input autocomplete="off" class="itxt" />
-                <a href="javascript:" class="plus">+</a>
-                <a href="javascript:" class="mins">-</a>
+                <input autocomplete="off" class="itxt" v-model="count" @change="changeCount" />
+                <a class="plus" @click="count++">+</a>
+                <a class="mins" @click="count>1?count--:count=1">-</a>
               </div>
               <div class="add">
                 <a href="javascript:">加入购物车</a>
@@ -328,6 +328,11 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'Detail',
+  data() {
+    return {
+      count: 1,
+    }
+  },
 
   components: {
     ImageList,
@@ -365,6 +370,14 @@ export default {
         spuSaleAttr.isChecked = 0
       })
       spuSaleAttrValue.isChecked = 1
+    },
+    changeCount(event) {
+      let value = event.target.value
+      if (isNaN(value * 1) || value < 1) {
+        this.count = 1
+      } else {
+        this.count = parseInt(value)
+      }
     },
   },
 }
@@ -560,6 +573,7 @@ export default {
                 position: absolute;
                 right: -8px;
                 border: 1px solid #ccc;
+                cursor: pointer;
               }
 
               .mins {
