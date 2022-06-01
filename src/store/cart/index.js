@@ -23,10 +23,17 @@ const mutations = {
 const state = {
   cartList: [],
 }
+
+const getters = {
+  cartInfoList(state) {
+    return state.cartList[0].cartInfoList
+  }
+}
 //创建并暴露store
 export default {
   namespaced: true,
   actions,
   mutations,
-  state
+  state,
+  getters,
 }

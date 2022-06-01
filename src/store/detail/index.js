@@ -19,13 +19,13 @@ const actions = {
 const mutations = {
   DETAILLIST(state, data) {
     state.detailList = data
-    state.uuid = getUUID()
+    state.UUID = getUUID()
   }
 }
 //准备state,用于存储数据
 const state = {
   detailList: {},
-  uuid: ''
+  UUID: ''
 }
 //创建并暴露store
 export default {

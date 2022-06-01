@@ -5,6 +5,7 @@ import nprogress from 'nprogress'
 //start:表示进度条开始 done:表示进度条结束
 // 引入nprogress样式
 import 'nprogress/nprogress.css'
+import store from '@/store/index'
 
 // 利用axios的create方法,创建一个axios实例
 const request = axios.create({
@@ -19,6 +20,10 @@ request.interceptors.request.use((config) => {
   // config:配置对象
   // 进度条开始
   nprogress.start()
+  console.log(store);
+  if (store.state.detail.UUID) {
+    config.headers.userTempId = store.state.detail.UUID
+  }
   return config
 })
 // 响应拦截器
