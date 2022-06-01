@@ -3,6 +3,7 @@ import Register from '@/pages/Register'
 import Login from '@/pages/Login'
 import Search from '@/pages/Search'
 import Detail from '@/pages/Detail'
+import AddCartSuccess from '@/pages/AddCartSuccess'
 export default [{
     path: '/home',
     component: Home,
@@ -40,6 +41,14 @@ export default [{
     component: Detail,
     meta: {
       showFooter: true
+    }
+  },
+  {
+    name: 'addtocart',
+    path: '/addtocart',
+    component: AddCartSuccess,
+    meta: {
+      showFooter: true,
     }
   },
   //重定向到home

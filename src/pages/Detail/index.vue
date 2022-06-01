@@ -83,7 +83,7 @@
                 <a class="mins" @click="count>1?count--:count=1">-</a>
               </div>
               <div class="add">
-                <a href="javascript:">加入购物车</a>
+                <a @click="addShopCart">加入购物车</a>
               </div>
             </div>
           </div>
@@ -325,6 +325,7 @@
 import ImageList from './ImageList/ImageList'
 import Zoom from './Zoom/Zoom'
 import { mapState } from 'vuex'
+import { reqAddToCart } from '@/api'
 
 export default {
   name: 'Detail',
@@ -356,9 +357,6 @@ export default {
     skuImageList() {
       return this.skuInfo.skuImageList || []
     },
-    spuSaleAttrList() {
-      return this.detailList.spuSaleAttrList
-    },
   },
   mounted() {
     this.$store.dispatch('detail/detailList', this.$route.params)
@@ -370,6 +368,22 @@ export default {
         spuSaleAttr.isChecked = 0
       })
       spuSaleAttrValue.isChecked = 1
+    },
+    async addShopCart() {
+      let result = await reqAddToCart({
+        skuId: this.$route.params.skuId,
+        skuNum: this.count,
+      })
+      if (result.code == 200) {
+        this.$router.push({
+          name: 'addtocart',
+          query: { skuId: this.$route.params.skuId },
+        })
+        sessionStorage.setItem('skuInfo', JSON.stringify(this.skuInfo))
+        sessionStorage.setItem('count', JSON.stringify(this.count))
+      } else {
+        alert('添加失败')
+      }
     },
     changeCount(event) {
       let value = event.target.value
@@ -598,6 +612,7 @@ export default {
                 height: 36px;
                 line-height: 36px;
                 display: block;
+                cursor: pointer;
               }
             }
           }

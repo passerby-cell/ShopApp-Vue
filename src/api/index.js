@@ -30,3 +30,9 @@ export const reqDetailList = (data) => apirequest({
   url: `item/${data.skuId}`,
   method: 'GET',
 })
+
+//加入购物车
+export const reqAddToCart = (data) => apirequest({
+  url: `/cart/addToCart/${data.skuId}/${data.skuNum}`,
+  method: 'POST',
+})
