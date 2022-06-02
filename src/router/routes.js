@@ -6,6 +6,7 @@ import Detail from '@/pages/Detail'
 import AddCartSuccess from '@/pages/AddCartSuccess'
 import ShopCart from '@/pages/ShopCart'
 export default [{
+    name: 'home',
     path: '/home',
     component: Home,
     meta: {

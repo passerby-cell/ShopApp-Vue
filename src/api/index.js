@@ -61,3 +61,10 @@ export const reqUserRegister = (data) => apirequest({
   data,
   method: 'POST',
 })
+
+//用户登录 /user/passport/login
+export const reqUserLogin = (data) => apirequest({
+  url: `/user/passport/login`,
+  data,
+  method: 'POST',
+})

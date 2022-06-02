@@ -5,6 +5,7 @@ import search from './search'
 import home from './home'
 import detail from './detail'
 import cart from './cart'
+import login from './login'
 Vue.use(Vuex)
 
 //创建并暴露store
@@ -14,5 +15,6 @@ export default new Vuex.Store({
     home,
     detail,
     cart,
+    login,
   }
 })
