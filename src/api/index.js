@@ -48,3 +48,16 @@ export const reqDeleteCart = (skuId) => apirequest({
   url: `/cart/deleteCart/${skuId}`,
   method: 'DELETE',
 })
+
+//用户注册验证码 /user/passport/code
+export const reqCode = (phone) => apirequest({
+  url: `/user/passport/sendCode/${phone}`,
+  method: 'GET',
+})
+
+//用户注册 /user/passport/register
+export const reqUserRegister = (data) => apirequest({
+  url: `/user/passport/register`,
+  data,
+  method: 'POST',
+})
