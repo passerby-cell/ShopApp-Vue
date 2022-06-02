@@ -25,8 +25,8 @@ const state = {
 }
 
 const getters = {
-  cartInfoList(state) {
-    return state.cartList[0].cartInfoList
+  cartInfoListFather(state) {
+    return state.cartList[0] || {}
   }
 }
 //创建并暴露store

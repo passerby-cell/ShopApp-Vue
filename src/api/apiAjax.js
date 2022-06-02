@@ -20,9 +20,10 @@ request.interceptors.request.use((config) => {
   // config:配置对象
   // 进度条开始
   nprogress.start()
-  console.log(store);
   if (store.state.detail.UUID) {
     config.headers.userTempId = store.state.detail.UUID
+  } else {
+    config.headers.userTempId = localStorage.getItem('UUID')
   }
   return config
 })

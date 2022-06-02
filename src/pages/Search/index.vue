@@ -91,11 +91,7 @@
                     </i>
                   </div>
                   <div class="operate">
-                    <a
-                      href="success-cart.html"
-                      target="_blank"
-                      class="sui-btn btn-bordered btn-danger"
-                    >加入购物车</a>
+                    <a class="sui-btn btn-bordered btn-danger" @click="addShopCart(goods.id)">加入购物车</a>
                     <a href="javascript:void(0);" class="sui-btn btn-bordered">收藏</a>
                   </div>
                 </div>
@@ -118,6 +114,7 @@
 <script>
 import SearchSelector from './SearchSelector/SearchSelector'
 import { mapState } from 'vuex'
+import { reqAddToCart } from '@/api'
 
 export default {
   name: 'Search',
@@ -154,6 +151,13 @@ export default {
     this.getSearchList()
   },
   methods: {
+    async addShopCart(data) {
+      console.log(data)
+      let result = await reqAddToCart({
+        skuId: data,
+        skuNum: 1,
+      })
+    },
     changePage(pageNo) {
       this.search.pageNo = pageNo
       this.getSearchList()

@@ -42,3 +42,9 @@ export const reqCartList = () => apirequest({
   url: `cart/cartList`,
   method: 'GET',
 })
+
+//删除购物车 /cart/deleteCart/{skuId}
+export const reqDeleteCart = (skuId) => apirequest({
+  url: `/cart/deleteCart/${skuId}`,
+  method: 'DELETE',
+})

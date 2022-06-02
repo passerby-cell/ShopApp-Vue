@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     ShopCart() {
-      this.$store.dispatch('cart/getCartList')
       this.$router.push({ name: 'shopcart' })
     },
   },
