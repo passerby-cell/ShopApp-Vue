@@ -17,6 +17,7 @@ const mutations = {
   LOGIN(state, data) {
     state.LoginInfo = data
     localStorage.setItem('token', data.token)
+    localStorage.setItem('username', data.name)
   }
 }
 //准备state,用于存储数据

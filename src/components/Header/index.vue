@@ -6,10 +6,14 @@
       <div class="container">
         <div class="loginList">
           <p>尚品汇欢迎您！</p>
-          <p>
+          <p v-show="!isLogin">
             <span>请</span>
             <router-link to="/login">登录</router-link>
             <router-link to="/register" class="register">免费注册</router-link>
+          </p>
+          <p v-show="isLogin">
+            <span>你好,{{username}}</span>
+            <a style="margin-left:5px;" @click="logout">退出</a>
           </p>
         </div>
         <div class="typeList">
@@ -54,6 +58,14 @@ export default {
       searchKey: '',
     }
   },
+  computed: {
+    isLogin() {
+      return localStorage.getItem('token')
+    },
+    username() {
+      return localStorage.getItem('username')
+    },
+  },
   methods: {
     //搜索按钮的回调函数
     goSearch() {
@@ -67,6 +79,12 @@ export default {
       }
       //传递路由参数,对象方式
       this.$router.push(location)
+    },
+    logout() {
+      localStorage.removeItem('token')
+      localStorage.removeItem('username')
+      this.isLogin = undefined
+      this.username = undefined
     },
   },
   mounted() {
